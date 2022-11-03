@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-03T07:25:35.138Z",
+    "end": "2022-11-03T07:25:53.069Z",
+    "duration": 17931,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "644c7c89-55f2-4b4d-85b2-7b97414dadad",
+      "title": "",
+      "fullFile": "cypress\\e2e\\standardUser.cy.js",
+      "file": "cypress\\e2e\\standardUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+          "title": "Standard user actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login",
+              "fullTitle": "Standard user actions Login",
+              "timedOut": null,
+              "duration": 2363,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.getUserPageHeading().contains('Products');",
+              "err": {},
+              "uuid": "23841cb5-2d6d-45aa-b097-f247e9c9976a",
+              "parentUUID": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add backpack to cart",
+              "fullTitle": "Standard user actions Add backpack to cart",
+              "timedOut": null,
+              "duration": 2240,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.getProductName().contains(\"Backpack\");",
+              "err": {},
+              "uuid": "14737753-8e67-4c1b-80cc-69d6ea3abbe2",
+              "parentUUID": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cart Total",
+              "fullTitle": "Standard user actions Cart Total",
+              "timedOut": null,
+              "duration": 1794,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.addTShirtToCart();\nlet tshirtPrice = userPage.tshirtPrice();\nlet bagPrice = userPage.bagPrice();\nlet tax = 3.68;\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\nlet checkoutTotal = checkoutPage2.getTotalAmount();\nlet sum;\ntshirtPrice.then(ts => {\n  bagPrice.then(bp => {\n    sum = parseFloat(ts.substr(1)) + parseFloat(bp.substr(1)) + tax;\n    checkoutTotal.then(check => {\n      assert.equal(check, sum, \"Successfully Passed\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "893428e5-b97e-426d-9cd8-8ebae6e14fc8",
+              "parentUUID": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout Flow",
+              "fullTitle": "Standard user actions Checkout Flow",
+              "timedOut": null,
+              "duration": 4605,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\ncheckoutPage2.finalizePurchase();\ncheckoutComplete.thanksText().contains(\"THANK YOU\");",
+              "err": {},
+              "uuid": "0abe7208-6045-43cc-985e-0b4776b89a41",
+              "parentUUID": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logout Flow",
+              "fullTitle": "Standard user actions Logout Flow",
+              "timedOut": null,
+              "duration": 2525,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.burgerMenuClick();\nuserPage.logoutClick();\nlogin.getLoginButton().should(\"be.visible\");",
+              "err": {},
+              "uuid": "12405891-2088-4a5e-8826-15a4fe0e0d78",
+              "parentUUID": "a5009cc5-e1ce-42a5-8ca1-709fb44a39a7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "23841cb5-2d6d-45aa-b097-f247e9c9976a",
+            "14737753-8e67-4c1b-80cc-69d6ea3abbe2",
+            "893428e5-b97e-426d-9cd8-8ebae6e14fc8",
+            "0abe7208-6045-43cc-985e-0b4776b89a41",
+            "12405891-2088-4a5e-8826-15a4fe0e0d78"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13527,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

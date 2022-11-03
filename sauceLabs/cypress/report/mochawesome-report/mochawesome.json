@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-03T07:23:08.609Z",
+    "end": "2022-11-03T07:23:55.946Z",
+    "duration": 47337,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7e5792dc-77f0-4609-9fa4-b7ab22066db0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\performanceGlitchUser.cy.js",
+      "file": "cypress\\e2e\\performanceGlitchUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+          "title": "Performance Glitch User actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login",
+              "fullTitle": "Performance Glitch User actions Login",
+              "timedOut": null,
+              "duration": 8772,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.getUserPageHeading().contains('Products');",
+              "err": {},
+              "uuid": "c9fcf671-3235-46e0-bc56-1a0102b686c4",
+              "parentUUID": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add backpack to cart",
+              "fullTitle": "Performance Glitch User actions Add backpack to cart",
+              "timedOut": null,
+              "duration": 8471,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.getProductName().contains(\"Backpack\");",
+              "err": {},
+              "uuid": "32943782-9d49-4973-bdec-e8190196adf5",
+              "parentUUID": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cart Total",
+              "fullTitle": "Performance Glitch User actions Cart Total",
+              "timedOut": null,
+              "duration": 6793,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.addTShirtToCart();\nlet tshirtPrice = userPage.tshirtPrice();\nlet bagPrice = userPage.bagPrice();\nlet tax = 3.68;\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\nlet checkoutTotal = checkoutPage2.getTotalAmount();\nlet sum;\ntshirtPrice.then(ts => {\n  bagPrice.then(bp => {\n    sum = parseFloat(ts.substr(1)) + parseFloat(bp.substr(1)) + tax;\n    checkoutTotal.then(check => {\n      assert.equal(check, sum, \"Successfully Passed\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "95a33348-4d42-4f76-8506-9e2561ef6519",
+              "parentUUID": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout Flow",
+              "fullTitle": "Performance Glitch User actions Checkout Flow",
+              "timedOut": null,
+              "duration": 10510,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\ncheckoutPage2.finalizePurchase();\ncheckoutComplete.thanksText().contains(\"THANK YOU\");",
+              "err": {},
+              "uuid": "8f4c9e8f-218d-40d9-afa2-c54dd4b23417",
+              "parentUUID": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logout Flow",
+              "fullTitle": "Performance Glitch User actions Logout Flow",
+              "timedOut": null,
+              "duration": 8208,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.burgerMenuClick();\nuserPage.logoutClick();\nlogin.getLoginButton().should(\"be.visible\");",
+              "err": {},
+              "uuid": "f0b0a6ff-daa3-4716-a3cb-8d7c81ab54aa",
+              "parentUUID": "e4c1f990-93d7-4b63-886a-a2f5d32a1e9b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c9fcf671-3235-46e0-bc56-1a0102b686c4",
+            "32943782-9d49-4973-bdec-e8190196adf5",
+            "95a33348-4d42-4f76-8506-9e2561ef6519",
+            "8f4c9e8f-218d-40d9-afa2-c54dd4b23417",
+            "f0b0a6ff-daa3-4716-a3cb-8d7c81ab54aa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 42754,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

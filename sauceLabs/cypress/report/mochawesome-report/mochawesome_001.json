@@ -1,0 +1,187 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-11-03T07:24:31.444Z",
+    "end": "2022-11-03T07:25:09.116Z",
+    "duration": 37672,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "68fc2710-5628-4bfc-adb2-6bbeb76365e2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\problemUser.cy.js",
+      "file": "cypress\\e2e\\problemUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b47da0e8-8bf0-4502-b817-a504077daeea",
+          "title": "Problem user actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login",
+              "fullTitle": "Problem user actions Login",
+              "timedOut": null,
+              "duration": 2197,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.getUserPageHeading().contains('Products');",
+              "err": {},
+              "uuid": "9008ddec-6675-4eae-a9a0-dacc4b4aff68",
+              "parentUUID": "b47da0e8-8bf0-4502-b817-a504077daeea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add backpack to cart",
+              "fullTitle": "Problem user actions Add backpack to cart",
+              "timedOut": null,
+              "duration": 2090,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.getProductName().contains(\"Backpack\");",
+              "err": {},
+              "uuid": "28fba719-0652-4526-9d40-7229475659f5",
+              "parentUUID": "b47da0e8-8bf0-4502-b817-a504077daeea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cart Total",
+              "fullTitle": "Problem user actions Cart Total",
+              "timedOut": null,
+              "duration": 1596,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.addTShirtToCart();\nlet tshirtPrice = userPage.tshirtPrice();\nlet bagPrice = userPage.bagPrice();\nlet tax = 3.68;\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\nlet checkoutTotal = checkoutPage2.getTotalAmount();\nlet sum;\ntshirtPrice.then(ts => {\n  bagPrice.then(bp => {\n    sum = parseFloat(ts.substr(1)) + parseFloat(bp.substr(1)) + tax;\n    checkoutTotal.then(check => {\n      assert.equal(check, sum, \"Successfully Passed\");\n    });\n  });\n});",
+              "err": {},
+              "uuid": "a75ca1b3-681e-4e08-a22a-a6aa889fc51b",
+              "parentUUID": "b47da0e8-8bf0-4502-b817-a504077daeea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Checkout Flow",
+              "fullTitle": "Problem user actions Checkout Flow",
+              "timedOut": null,
+              "duration": 24674,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "userPage.addBagToCart();\nuserPage.navigateToCart();\ncartPage.clickCheckout();\ncheckoutPage.setFirstname(\"test\");\ncheckoutPage.setLastname(\"Case\");\ncheckoutPage.setZipCode(\"789456\");\ncheckoutPage.clickContinue();\ncheckoutPage2.finalizePurchase();\ncheckoutComplete.thanksText().contains(\"THANK YOU\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 20000ms: Expected to find element: `#finish`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 20000ms: Expected to find element: `#finish`, but never found it.\n    at CheckoutPage2.finalizePurchase (webpack:///./cypress/e2e/pages/CheckoutPage2.js:4:11)\n    at Context.eval (webpack:///./cypress/e2e/problemUser.cy.js:69:22)",
+                "diff": null
+              },
+              "uuid": "5d15d1da-e7a8-4b0c-84fd-f28059c6e079",
+              "parentUUID": "b47da0e8-8bf0-4502-b817-a504077daeea",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logout Flow",
+              "fullTitle": "Problem user actions Logout Flow",
+              "timedOut": null,
+              "duration": 2621,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userPage.burgerMenuClick();\nuserPage.logoutClick();\nlogin.getLoginButton().should(\"be.visible\");",
+              "err": {},
+              "uuid": "8d9270f6-b729-4cc0-8e3e-7daa4f7a9dc2",
+              "parentUUID": "b47da0e8-8bf0-4502-b817-a504077daeea",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9008ddec-6675-4eae-a9a0-dacc4b4aff68",
+            "28fba719-0652-4526-9d40-7229475659f5",
+            "a75ca1b3-681e-4e08-a22a-a6aa889fc51b",
+            "8d9270f6-b729-4cc0-8e3e-7daa4f7a9dc2"
+          ],
+          "failures": [
+            "5d15d1da-e7a8-4b0c-84fd-f28059c6e079"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 33178,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
